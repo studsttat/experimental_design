@@ -1,0 +1,10 @@
+Package: multicomparison
+Type: Package
+Title: Multiple Comparison Test for Treatment Means
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: A statistical Analysis that is used for multiple comparison test with linear combinations
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
