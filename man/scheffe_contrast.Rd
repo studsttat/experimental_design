@@ -2,23 +2,18 @@
 \alias{scheffe_contrast}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \usage{
-contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
-                           conf.int = TRUE)
+scheffe_contrast(y,gr,coef1 = c(2,1,1), coef2 = c(1,1,1),
+                             alpha = 0.05, conf.int = TRUE)
 
 }
-\argument{
-\item{y}{Vector of Data}
 
-\item{gr}{Group Factor}
-
-\item{coef1}{First Linear Combination Coefficients}
-
-\item{coef2}{Second Linear Combination Coefficients}
-
-\item{alpha}{Significance Test. Default at 0.05}
-
-\item{conf.int}{If TRUE; return confidence interval}
-
-
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{y}{response}
+  \item{gr}{group factors}
+  \item{coef1}{Second Linear combination coefficients}
+  \item{coef2}{Second Linear combination coefficients}
+  \item{alpha}{level of significance}
+  \item{conf.int}{If TRUE, return confidence interval}
 }
 
