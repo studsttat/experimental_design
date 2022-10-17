@@ -11,17 +11,15 @@ contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
 
 
 
-\argument{
-\item{y}{Vector of Data}
+\arguments{
+\item{y}{response}
 
-\item{gr}{Group Factor}
+\item{gr}{treatment}
 
-\item{coef1}{First Linear Combination Coefficients}
+\item{alpha}{level signification}
 
-\item{alpha}{Significance Test. Default at 0.05}
+\item{coef}{Linear combination coefficients}
 
-\item{conf.int}{If TRUE; return confidence interval}
-
-
+\item{conf.int}{If TRUE, return confidence interval}
 }
 
