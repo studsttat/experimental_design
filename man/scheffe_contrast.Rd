@@ -5,6 +5,7 @@
 contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
                            conf.int = TRUE)
 
+}
 \argument{
 \item{y}{Vector of Data}
 
