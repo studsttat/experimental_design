@@ -6,13 +6,17 @@ contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
                            conf.int = TRUE)
 
 }
-\argument{
 
+
+
+
+
+\argument{
 \item{y}{Vector of Data}
 
 \item{gr}{Group Factor}
 
-\item{coef}{Linear Combination Coefficients}
+\item{coef1}{First Linear Combination Coefficients}
 
 \item{alpha}{Significance Test. Default at 0.05}
 
@@ -20,5 +24,4 @@ contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
 
 
 }
-
 
