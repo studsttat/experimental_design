@@ -14,7 +14,6 @@
 \usage{
 scheffe_contrast(y,gr,coef1 = c(2,1,1), coef2 = c(1,1,1),
                              alpha = 0.05, conf.int = TRUE)
-
 }
 
 %- maybe also 'usage' for other objects documented here.
