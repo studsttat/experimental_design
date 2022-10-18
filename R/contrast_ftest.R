@@ -14,7 +14,7 @@
 #' @examples contrast.ftest(y = Treatment,gr = Stimulant,data = rabbit,coef1 = c(2,-1,-1),coef2 = c(2,-1,-1), alpha = 0.05,conf.int = TRUE)
 #' @examples
 
-contrast.ftest <- function(y,gr,coef = c(2,1,1),alpha = 0.05,
+contrast.ftest <- function(y,gr,coef,alpha = 0.05,
                            conf.int = TRUE){
 
 
@@ -77,7 +77,9 @@ contrast.ftest <- function(y,gr,coef = c(2,1,1),alpha = 0.05,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue, CI),
                          digits = 2)
-    return(test.summary)
+
+    summ = rbind(test.summary)
+	return(summ)
 
   }
   else
@@ -139,7 +141,8 @@ contrast.ftest <- function(y,gr,coef = c(2,1,1),alpha = 0.05,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue),
                          digits = 2)
-    return(test.summary)
+    summ = rbind(test.summary)
+	return(summ)
   }
 
 }
