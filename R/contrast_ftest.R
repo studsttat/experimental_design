@@ -7,6 +7,12 @@
 #' @param alpha Level of significance; defaults to 0.05
 #' @param conf.int If TRUE, the (1-alpha)% Confidence Interval. Default is FALSE
 #'
+#'
+#'
+#'
+#'
+#'
+#'
 #' @return A summary table from the result
 #' @export
 #'
