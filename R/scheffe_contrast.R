@@ -257,3 +257,6 @@ scheffe_contrast <- function(y,gr,coef1, coef2 = NULL,
 
 }
 
+
+
+
