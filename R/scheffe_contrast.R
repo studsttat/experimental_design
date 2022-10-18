@@ -83,12 +83,12 @@ scheffe_contrast <- function(y,gr,coef1, coef2 = NULL,
 
 
     H01 = round(c(Estimate = sum.mean1, MSE = mse,
-                  n = n,
+                  n = n, means = rbm[,2],
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
                   "Sua" = sua1, CI1),digits = 5)
     H02 = round(c(Estimate = sum.mean2, MSE = mse,
-                  n = n,
+                  n = n, means = rbm[,2],
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu2,
                   "Sua" = sua2, CI2),digits = 5)
@@ -167,7 +167,7 @@ scheffe_contrast <- function(y,gr,coef1, coef2 = NULL,
 
 
     H01 = round(c(Estimate = sum.mean1, MSE = mse,
-                  n = n,
+                  n = n, means = rbm[,2],
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
                   "Sua" = sua1, CI1),digits = 5)
@@ -240,12 +240,12 @@ scheffe_contrast <- function(y,gr,coef1, coef2 = NULL,
     ## Estimates Compilation
 
     H01 = round(c(Estimate = sum.mean1, MSE = mse,
-                  n = n,
+                  n = n, means = rbm[,2],
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
                   "Sua" = sua1),digits = 5)
     H02 = round(c(Estimate = sum.mean2, MSE = mse,
-                  n = n,
+                  n = n, means = rbm[,2],
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu2,
                   "Sua" = sua2),digits = 5)

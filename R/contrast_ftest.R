@@ -73,7 +73,7 @@ contrast_ftest <- function(y,gr,coef,alpha = 0.05,
     ## Summary
 
     test.summary = round(c(Estimate = sum.mean, MSE = mse,
-                           n = n,
+                           n = n, means = rbm[,2],
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue, CI),
                          digits = 5)
@@ -137,7 +137,7 @@ contrast_ftest <- function(y,gr,coef,alpha = 0.05,
     ## Summary
 
     test.summary = round(c(Estimate = sum.mean, MSE = mse,
-                           n=n,
+                           n=n, means = rbm[,2],
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue),
                          digits = 5)
