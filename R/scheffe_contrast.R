@@ -16,7 +16,7 @@
 # Scheffe Method
 
 
-scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
+scheffe_contrast <- function(y,gr,coef1, coef2 = NULL,
                              alpha = 0.05, conf.int = TRUE){
 
 
@@ -86,12 +86,12 @@ scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
                   n = n,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
-                  "Sua" = sua1, CI1),digits = 2)
+                  "Sua" = sua1, CI1),digits = 5)
     H02 = round(c(Estimate = sum.mean2, MSE = mse,
                   n = n,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu2,
-                  "Sua" = sua2, CI2),digits = 2)
+                  "Sua" = sua2, CI2),digits = 5)
 
     contrast.summary <- rbind(H01, H02)
 
@@ -170,7 +170,7 @@ scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
                   n = n,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
-                  "Sua" = sua1, CI1),digits = 2)
+                  "Sua" = sua1, CI1),digits = 5)
 
 
     summ = rbind(H01)
@@ -243,12 +243,12 @@ scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
                   n = n,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
-                  "Sua" = sua1),digits = 2)
+                  "Sua" = sua1),digits = 5)
     H02 = round(c(Estimate = sum.mean2, MSE = mse,
                   n = n,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu2,
-                  "Sua" = sua2),digits = 2)
+                  "Sua" = sua2),digits = 5)
 
     contrast.summary <- rbind(H01, H02)
 
