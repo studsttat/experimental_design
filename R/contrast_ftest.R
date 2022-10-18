@@ -14,7 +14,7 @@
 #' @examples contrast.ftest(y = Treatment,gr = Stimulant,data = rabbit,coef1 = c(2,-1,-1),coef2 = c(2,-1,-1), alpha = 0.05,conf.int = TRUE)
 #' @examples
 
-contrast.ftest <- function(y,gr,coef,alpha = 0.05,
+contrast.ftest <- function(y,gr,coef,alpha = 0.05, 
                            conf.int = TRUE){
 
 
@@ -72,19 +72,17 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
 
     ## Summary
 
-    test.summary = round(c(Estimate = sum.mean, MSE = mse,
+    test.summary = round(list(Estimate = sum.mean, MSE = mse,
                            n = n,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue, CI),
                          digits = 2)
 
-    summ = rbind(test.summary)
-	return(summ)
+	return(test.summary)
 
-  }
-  else
+  } else {
     # Without confidence interval
-  {
+  
 
     ## ANOVA Model
 
@@ -136,13 +134,13 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
 
     ## Summary
 
-    test.summary = round(c(Estimate = sum.mean, MSE = mse,
+    test.summary = round(list(Estimate = sum.mean, MSE = mse,
                            n=n,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue),
                          digits = 2)
-    summ = rbind(test.summary)
-	return(summ)
+    return(test.summary)
+	
   }
 
 }

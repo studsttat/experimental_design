@@ -18,7 +18,7 @@
 # Scheffe Method
 
 
-scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
+scheffe.contrast <- function(y,gr,coef1, coef2 = NULL, 
                              alpha = 0.05, conf.int = TRUE){
 
 
