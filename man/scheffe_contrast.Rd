@@ -13,7 +13,7 @@
 
 \usage{
 scheffe_contrast(y,gr,coef1 = c(2,1,1), coef2 = NULL,
-                             alpha = 0.05, conf.int = TRUE)
+                             alpha = 0.05, conf.int = FALSE)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -24,7 +24,7 @@ scheffe_contrast(y,gr,coef1 = c(2,1,1), coef2 = NULL,
   \item{coef2}{ Second Linear combination coefficients. Defaults at NULL}
   \item{alpha}{ level of significance}
   \item{conf.int}{ If TRUE, return confidence interval}
-  
+
 }
 
 \examples{

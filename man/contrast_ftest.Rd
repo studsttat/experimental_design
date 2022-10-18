@@ -14,7 +14,7 @@
 
 \usage{
 contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
-                           conf.int = TRUE)
+                           conf.int = FALSE)
 }
 
 %- maybe also 'usage' for other objects documented here.

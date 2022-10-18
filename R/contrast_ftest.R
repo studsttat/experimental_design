@@ -15,11 +15,11 @@
 #' @examples
 
 contrast_ftest <- function(y,gr,coef,alpha = 0.05,
-                           conf.int = TRUE){
+                           conf.int = FALSE){
 
 
 
-  if(!conf.int == TRUE){
+  if(conf.int == TRUE){
     # With confidence interval
 
     ## Mean of Each Group
