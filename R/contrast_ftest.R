@@ -72,15 +72,16 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
 
     ## Summary
 
-    test.summary = round(list(Estimate = sum.mean, MSE = mse,
+    test.summary = round(c(Estimate = sum.mean, MSE = mse,
                            n = n,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue, CI),
                          digits = 2)
+	r = rbind(test.summary)
+	return(r)
 
-	return(test.summary)
-
-  } else {
+  } else 
+  {
     # Without confidence interval
   
 
@@ -134,7 +135,7 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
 
     ## Summary
 
-    test.summary = round(list(Estimate = sum.mean, MSE = mse,
+    test.summary = round(c(Estimate = sum.mean, MSE = mse,
                            n=n,
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue),
