@@ -19,10 +19,10 @@ contrast_ftest(y,gr,coef = c(2,1,1),alpha = 0.05,
 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{y}{response}
-  \item{gr}{group factors}
-  \item{coef}{Linear combination coefficients}
-  \item{alpha}{level of significance}
-  \item{conf.int}{If TRUE, return confidence interval}
+  \item{y}{ response}
+  \item{gr}{ group factors}
+  \item{coef}{ Linear combination coefficients}
+  \item{alpha}{ level of significance}
+  \item{conf.int}{ If TRUE, return confidence interval}
 }
 
