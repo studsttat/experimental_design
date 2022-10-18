@@ -2,7 +2,7 @@
 \alias{scheffe_contrast}
 
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{contrast_ftest
+\title{Post - Hoc Test with Scheffe Method
 %%  ~~function to do ... ~~
 }
 

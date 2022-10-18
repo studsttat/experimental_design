@@ -1,7 +1,7 @@
 \name{contrast_ftest}
 \alias{contrast_ftest}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{contrast_ftest
+\title{Post - Hoc F Test for multiple treatments
 %%  ~~function to do ... ~~
 }
 \description{Multiple Comparison Test of ANOVA with Linear Combinations
