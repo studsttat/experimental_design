@@ -11,10 +11,10 @@
 #' @return A summary table from the result
 #' @export
 #'
-#' @examples contrast.ftest(y = Treatment,gr = Stimulant,data = rabbit,coef1 = c(2,-1,-1),coef2 = c(2,-1,-1), alpha = 0.05,conf.int = TRUE)
+#' @examples contrast.ftest(y = Treatment,gr = Stimulant,coef, alpha = 0.05,conf.int = TRUE)
 #' @examples
 
-contrast.ftest <- function(y,gr,coef,alpha = 0.05, 
+contrast.ftest <- function(y,gr,coef,alpha = 0.05,
                            conf.int = TRUE){
 
 
@@ -80,10 +80,10 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
 	r = rbind(test.summary)
 	return(r)
 
-  } else 
+  } else
   {
     # Without confidence interval
-  
+
 
     ## ANOVA Model
 
@@ -141,7 +141,7 @@ contrast.ftest <- function(y,gr,coef,alpha = 0.05,
                            Fstatistic = fval, pvalue=pvalue),
                          digits = 2)
     return(test.summary)
-	
+
   }
 
 }

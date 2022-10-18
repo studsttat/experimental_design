@@ -3,7 +3,6 @@
 #'
 #' @param y Vector of Sample
 #' @param gr Factor of Group
-#' @param data A data frame object
 #' @param coef1
 #' @param coef1
 #' @param alpha Level of significance; defaults to 0.05
@@ -12,13 +11,12 @@
 #' @return A summary table from the result
 #' @export
 #'
-#' @examples scheffe.contrast(y = Treatment,gr = Stimulant,data = rabbit,coef1 = c(2,-1,-1),coef2 = c(2,-1,-1), alpha = 0.05,conf.int = TRUE)
 #' @examples
 
 # Scheffe Method
 
 
-scheffe.contrast <- function(y,gr,coef1, coef2 = NULL, 
+scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
                              alpha = 0.05, conf.int = TRUE){
 
 
@@ -99,11 +97,11 @@ scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
 
     return(contrast.summary)
   }
-	
-  
-  
-  
-  
+
+
+
+
+
   if(conf.int == TRUE){
     # With confidence interval
 
@@ -173,7 +171,7 @@ scheffe.contrast <- function(y,gr,coef1, coef2 = NULL,
                   N = N, a = a, dfy = dfy, dfg = dfg,
                   "|Cu|"= cu1,
                   "Sua" = sua1, CI1),digits = 2)
-    
+
 
     summ = rbind(H01)
 
