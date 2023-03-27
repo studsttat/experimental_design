@@ -136,7 +136,7 @@ contrast_ftest <- function(y,gr,coef,alpha = 0.05,
 
     ## Summary
 
-    test.summary = round(c(Estimate = sum.mean, MSE = mse,
+    test.summary = round(list(Estimate = sum.mean, MSE = mse,
                            n=n, means = rbm[,2],
                            N = N, a = a, dfy = dfy, dfg = dfg,
                            Fstatistic = fval, pvalue=pvalue),
