@@ -1,10 +1,10 @@
 Package: experimental_design
 Type: Package
-Title: Multiple Comparison Test for Treatment Means
-Version: 1.1.1
+Title: All Test for Treatment Means
+Version: 1.1.2
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: A statistical Analysis that is used for multiple comparison test with linear combinations
+Description: Statistical Analyses from "Design and analysis of experimnts" by Douglas C. Montgomery.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
