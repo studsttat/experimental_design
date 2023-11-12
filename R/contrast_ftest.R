@@ -14,138 +14,81 @@
 #' @examples contrast.ftest(y = Treatment,gr = Stimulant,coef, alpha = 0.05,conf.int = TRUE)
 #' @examples
 
-contrast_ftest <- function(y,gr,coef,alpha = 0.05,
-                           conf.int = FALSE){
+contrast_ftest <- function(y, gr, coef, alpha = 0.05, conf.int = FALSE) {
+  ## Mean of Each Group
+  rbm <- aggregate(y, by = list(Category = gr), FUN = mean)
 
+  ## Length of each group
+  lpg <- aggregate(y, by = list(Category = gr), FUN = length)
 
+  ## Fit ANOVA Model
+  fit <- aov(y ~ gr)
 
-  if(conf.int == TRUE){
-    # With confidence interval
+  ## Other Parameters
+  a <- length(levels(gr))
+  N <- length(y)
+  n <- lpg[, 2]
+  dfg <- a - 1
+  dfy <- N - a
+  dft <- N - 1
 
-    ## Mean of Each Group
-    rbm <- aggregate(y,
-                     by = list(Category = gr),
-                     FUN = mean
-    )
+  ## Mean Square Error
+  mse <- sum((fit$residuals)^2) / dfy
 
-    ## Length of each group
-    lpg <- aggregate(y,
-                     by = list(Category = gr),
-                     FUN = length
-    )
+  ## Mean Estimates and Numerator
+  sum.mean <- sum(coef * rbm[, 2])
 
-    ## ANOVA Model
+  ## Mean of Squares of Coefficients and denominator
+  sum.sqc <- sum((coef^2) / n)
 
-    fit = aov(y~gr)
+  ## Test Statistic
+  fval <- sum.mean^2 / (mse * sum.sqc)
 
-    ## Size Parameters
+  ## Computed p-value (from f-distribution)
+  pvalue <- pf(fval, 1, dfy, lower.tail = FALSE)
 
-    a = length(lpg$x)
-    N = length(y)
-    n = lpg[,2]
-    dfg = a-1
-    dfy = N-a
-    dft = N-1
-
-    ## Mean Square Error
-    mse = sum((fit$residuals)^2)/dfy
-
-    ## Mean Estimates and Numerator
-    sum.mean = round(sum(coef*rbm[,2]),digits = 2)
-    sq.sum = (sum.mean)^2
-
-    ## Mean of Squares of Coefficients and denominator
-    sum.sqc = sum((coef^2)/n)
-
-    ## Test Statistic
-
-    fval = round(sq.sum/(mse*sum.sqc),digits = 2)
-
-    ## Computed p-value (f-distribution)
-    pvalue = pf(fval,1,dfy,lower.tail = F)
-
+  ## Evaluate Confidence Interval
+  if (conf.int) {
     ## (1-alpha)% Confidence Interval
+    t_val <- qt(1 - alpha / 2, dfy)
+    margin <- t_val * sqrt(mse * sum.sqc)
 
-    lower = sum.mean - (qt((alpha)/2,N-a,lower.tail = F))*(mse*sum.sqc)
-    upper = sum.mean + (qt((alpha)/2,N-a,lower.tail = F))*(mse*sum.sqc)
-    CI = c(Lowerlvl = lower, Upperlvl = upper)
-
-    ## Summary
-
-    test.summary = round(c(Estimate = sum.mean, MSE = mse,
-                           n = n, means = rbm[,2],
-                           N = N, a = a, dfy = dfy, dfg = dfg,
-                           Fstatistic = fval, pvalue=pvalue, CI),
-                         digits = 5)
-    r = rbind(test.summary)
-    return(r)
-
-
-  } else
-  {
-    # Without confidence interval
-
-
-    ## ANOVA Model
-
-    fit = aov(y~gr)
-
-    ## Mean of each group
-
-    rbm <- aggregate(y,
-                     by = list(Category = gr),
-                     FUN = mean
-    )
-
-    ## Length of each group
-
-    lpg <- aggregate(y,
-                     by = list(Category = gr),
-                     FUN = length
-    )
-
-    ## Size Parameters
-
-    a = length(lpg$x)
-    N = length(y)
-    n = lpg[,2]
-    dfg = a-1
-    dfy = N-a
-    dft = N-1
-
-    ## MSE
-
-    mse = sum((fit$residuals)^2)/dfy
-
-    ## Mean Estimates and Numerator
-
-    sum.mean = round(sum(coef*rbm[,2]),digits = 2)
-    sq.sum = (sum.mean)^2
-
-    ## Mean of Squares of Coefficients and denominator
-
-    sum.sqc = sum((coef^2)/n)
-
-    ## Test Statistic
-
-    fval = round(sq.sum/(mse*sum.sqc),digits = 2)
-
-    ## Computed p-value
-
-    pvalue = pf(fval,1,dfy,lower.tail = F)
+    lower <- sum.mean - margin
+    upper <- sum.mean + margin
+    CI <- c(Lowerlvl = lower, Upperlvl = upper)
 
     ## Summary
-
-    test.summary = round(list(Estimate = sum.mean, MSE = mse,
-                           n=n, means = rbm[,2],
-                           N = N, a = a, dfy = dfy, dfg = dfg,
-                           Fstatistic = fval, pvalue=pvalue),
-                         digits = 5)
-    r = rbind(test.summary)
-    return(r)
-
+    test.summary <- c(
+      Estimate = sum.mean,
+      MSE = mse,
+      n = n,
+      means = rbm[, 2],
+      N = N,
+      a = a,
+      dfy = dfy,
+      dfg = dfg,
+      Fstatistic = fval,
+      pvalue = pvalue,
+      CI
+    )
+    r <- data.frame(t(test.summary))
+  } else {
+    test.summary <- c(
+      Estimate = sum.mean,
+      MSE = mse,
+      n = n,
+      means = rbm[, 2],
+      N = N,
+      a = a,
+      dfy = dfy,
+      dfg = dfg,
+      Fstatistic = fval,
+      pvalue = pvalue
+    )
+    r <- data.frame(t(test.summary))
   }
 
+  return(r)
 }
 
 
@@ -155,4 +98,13 @@ contrast_ftest <- function(y,gr,coef,alpha = 0.05,
 #######################################################################
 
 
+#' @export
+
+print.ftest <- function(x,...){
+  df1 <- x$dfg
+  df2 <- x$dfy
+
+  cat("Degrees of freedom by group:  ", df1, "\n")
+  cat("Degrees of freedom of residuals:  ", df2, "\n")
+}
 
