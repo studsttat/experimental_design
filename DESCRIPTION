@@ -1,4 +1,4 @@
-Package: multicomparison
+Package: experimental_design
 Type: Package
 Title: Multiple Comparison Test for Treatment Means
 Version: 1.1.1
